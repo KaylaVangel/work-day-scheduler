@@ -1,8 +1,24 @@
+
+
+
 setInterval(checkTime,1000);
 function checkTime() {
-    var dateToDisplay = moment().weekday(4);
+    var dateToDisplay = moment();
    document.getElementById("currentDay").innerHTML= dateToDisplay;
-   //if statement to check the time and if past the hr id then needs to change to past. //
-   //If not past needs to change to present. If future needs to change to future//
-   
+
+//    if (time < hour) {
+
+
+//    }
 }
+
+
+ 
+function save(button) {
+    let saveText = button.previousElementSibling.value;
+    let hour = button.parentElement.id
+    localStorage.setItem(hour, saveText);
+ console.log(button.parentElement.id);
+
+
+};
