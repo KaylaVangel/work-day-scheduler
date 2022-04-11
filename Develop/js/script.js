@@ -1,11 +1,17 @@
 
+let timeBlocks = Array.from(document.getElementsByClassName("time-block"));
 
+function save(button) {
+    let saveText = button.previousElementSibling.value;
+    let hour = button.parentElement.id
+    localStorage.setItem(hour, saveText);
+};
 
 setInterval(checkTime, 1000,);
 function checkTime() {
     var dateToDisplay = moment();
     document.getElementById("currentDay").innerHTML = dateToDisplay;
-    let timeBlocks = Array.from(document.getElementsByClassName("time-block"));
+
 
 
     for (let i = 9; i < (9 + timeBlocks.length); i++) {
@@ -20,13 +26,13 @@ function checkTime() {
         }
 
     };
-
-    function save(button) {
-        let saveText = button.previousElementSibling.value;
-        let hour = button.parentElement.id
-        localStorage.setItem(hour, saveText);
-        console.log(button.parentElement.id);
- 
-   };
-
 };
+
+for (i = 9; i < (9 + timeBlocks.length); i++) {
+    timeBlocks[i - 9].querySelector("textarea").value = localStorage.getItem(`hour-${i}`);
+   
+
+}
+
+
+
